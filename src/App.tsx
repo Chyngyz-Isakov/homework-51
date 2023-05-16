@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Game from "./Game/Game";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    let [number, setNumber] = useState([0, 0, 0, 0, 0]);
+
+
+
+
+    return (
+        <div className="App">
+            <button className="change-btn" >New Numbers</button>
+            <div>
+                <Game num={number[0]}/>
+                <Game num={number[1]}/>
+                <Game num={number[2]}/>
+                <Game num={number[3]}/>
+                <Game num={number[4]}/>
+            </div>
+        </div>
+    );
+};
 
 export default App;

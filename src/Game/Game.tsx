@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface IGameProps extends React.PropsWithChildren {
+interface IGameProps {
     num: number;
 }
 
 const Game: React.FC<IGameProps> = props => {
     return (
-        <div className="person">
+        <div className="circle">
             <div>{props.num}</div>
         </div>
     );
