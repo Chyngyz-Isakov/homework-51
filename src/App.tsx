@@ -3,8 +3,7 @@ import './App.css';
 import Game from "./Game/Game";
 
 const App = () => {
-    let [number, setNumber] = useState([0, 0, 0, 0, 0]);
-
+    let [number, setNumber] = useState<number []>([]);
 
     const getRandomBall = () => {
         let randomBall: number[] = [];
@@ -20,24 +19,20 @@ const App = () => {
             }
         } while (i < 5);
         randomBall.sort((a, b) => a - b);
-        return randomBall
+        setNumber(randomBall);
     };
-    const changeNumbers = () => {
-        getRandomBall();
-        setNumber(getRandomBall);
-    };
-
-
 
     return (
         <div className="App">
-            <button className="change-btn" onClick={changeNumbers}>New Numbers</button>
-            <div>
-                <Game num={number[0]}/>
-                <Game num={number[1]}/>
-                <Game num={number[2]}/>
-                <Game num={number[3]}/>
-                <Game num={number[4]}/>
+            <div className="game-wrapper">
+                <button className="change-btn" onClick={getRandomBall}>New Numbers</button>
+                <div>
+                    <Game num={number[0]}/>
+                    <Game num={number[1]}/>
+                    <Game num={number[2]}/>
+                    <Game num={number[3]}/>
+                    <Game num={number[4]}/>
+                </div>
             </div>
         </div>
     );
